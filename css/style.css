@@ -855,3 +855,42 @@ tbody tr:hover {
     padding: 6px 6px 14px;
   }
 }
+
+/* ---------- MOBITEL: pozadina + kompaktan tablica hero ---------- */
+@media (max-width: 700px) {
+  /* Bez duplirane pozadinske slike — slika ostaje samo u herou */
+  .page-tablica,
+  .page-unos,
+  .page-mecevi {
+    background-image: none;
+    background-color: var(--bg);
+  }
+
+  /* Footer čitljiv na svijetloj podlozi */
+  .site-footer p {
+    color: var(--muted);
+    text-shadow: none;
+  }
+  .site-footer .footer-logo {
+    filter: none;
+  }
+
+  /* Tablica hero: kompaktno (nav → statistike → naslov), bez praznine */
+  .hero.full {
+    min-height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 130px 0 26px;
+  }
+  .hero.full .hero-stats {
+    position: static;
+    top: auto;
+    margin: 0 auto 18px;
+    width: 100%;
+  }
+  .hero.full .hero-inner {
+    align-self: stretch;
+    padding: 0 22px;
+  }
+}
