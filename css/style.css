@@ -755,3 +755,71 @@ tbody tr:hover {
     margin-top: -24px;
   }
 }
+
+/* ---------- MOBITEL ---------- */
+@media (max-width: 700px) {
+  /* Navbar: zbijen, linkovi u svoj red, manje margine */
+  .nav {
+    margin: 10px 10px 0;
+    padding: 6px 10px;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .nav .brand {
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 6px 0;
+  }
+  .nav .brand .brand-logo {
+    height: 40px;
+    margin-left: -8px;
+    margin-right: -6px;
+  }
+  .nav .spacer {
+    display: none;
+  }
+  .nav #me {
+    display: none; /* sakrij ime da stane */
+  }
+  .nav .btn-logout {
+    margin-right: 0;
+    padding: 7px 14px;
+  }
+  .nav-center {
+    order: 3;
+    flex: 1 0 100%; /* linkovi u zaseban red */
+    justify-content: space-around;
+    gap: 0;
+  }
+  .nav a {
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+
+  /* Fiksirana pozadina trza na mobitelu -> normalan scroll */
+  .page-fixed,
+  .page-fixed .hero {
+    background-attachment: scroll;
+  }
+
+  /* Hero + statistike kompaktnije */
+  .hero.hero-mid {
+    min-height: 360px;
+  }
+  .hero-stats {
+    top: 128px; /* ispod zbijenog navbara */
+    gap: 10px;
+  }
+  .stat-card {
+    padding: 14px;
+  }
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  /* Footer logo manji */
+  .site-footer .footer-logo {
+    height: 56px;
+  }
+}
