@@ -822,4 +822,36 @@ tbody tr:hover {
   .site-footer .footer-logo {
     height: 56px;
   }
+
+  /* Tablica da stane bez horizontalnog scrolla */
+  .container {
+    padding: 0 12px;
+  }
+  th,
+  td {
+    padding: 10px 5px;
+  }
+  th {
+    font-size: 0.6rem;
+    letter-spacing: 0;
+  }
+  td {
+    font-size: 0.82rem;
+  }
+  .pts {
+    font-size: 1rem;
+  }
+
+  /* Prijava/registracija: poništi negativne margine slike + manji padding */
+  .auth-card {
+    padding: 14px;
+    gap: 14px;
+  }
+  .auth-visual {
+    margin: 0;
+    min-height: 190px;
+  }
+  .auth-form-col {
+    padding: 6px 6px 14px;
+  }
 }
