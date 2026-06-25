@@ -802,7 +802,7 @@ tbody tr:hover {
     min-height: 360px;
   }
   .hero-stats {
-    top: 128px; /* ispod zbijenog navbara */
+    top: 150px; /* više zraka ispod navbara */
     gap: 10px;
   }
   .stat-card {
@@ -850,24 +850,3 @@ tbody tr:hover {
   }
 }
 
-/* ---------- MOBITEL: pozadina + kompaktan tablica hero ---------- */
-@media (max-width: 700px) {
-  /* Tablica hero: kompaktno (nav → statistike → naslov), bez praznine */
-  .hero.full {
-    min-height: auto;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    padding: 130px 0 26px;
-  }
-  .hero.full .hero-stats {
-    position: static;
-    top: auto;
-    margin: 0 auto 18px;
-    width: 100%;
-  }
-  .hero.full .hero-inner {
-    align-self: stretch;
-    padding: 0 22px;
-  }
-}
