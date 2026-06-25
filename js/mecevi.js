@@ -15,7 +15,7 @@
 
   if (!matches || matches.length === 0) {
     list.innerHTML =
-      '<div class="empty">Još nema odigranih mečeva. Unesi prvi! 🎾</div>';
+      '<div class="empty">Još nema odigranih mečeva. Unesi prvi! </div>';
     return;
   }
 
