@@ -1,0 +1,44 @@
+==========================================================
+  SLIKE ZA TENIS LIGU — kako ih dodati
+==========================================================
+
+Stavi svoje slike u OVAJ folder (images/) i nazovi ih
+TOČNO ovako (mala slova, .jpg). Stranica će ih sama pokupiti.
+
+  1) auth.jpg          -> velika slika na prijavi i registraciji
+                          (lijeva strana ekrana)
+
+  2) hero-tablica.jpg  -> velika hero slika na vrhu TABLICE
+
+  3) hero-unos.jpg     -> hero slika na stranici "Unesi meč"
+
+  4) hero-mecevi.jpg   -> hero slika na stranici "Mečevi"
+
+----------------------------------------------------------
+PREPORUKE
+----------------------------------------------------------
+- Format: .jpg (ili .png — ali onda promijeni naziv u HTML-u)
+- Široke (landscape) slike izgledaju najbolje.
+- Veličina: barem 1600 px široko, da bude oštro na velikim
+  ekranima. Idealno 1920x1080 ili šire.
+- Preko slike ide tamno zatamnjenje da bijeli tekst bude
+  čitljiv — zato biraj slike na kojima zatamnjenje izgleda ok
+  (npr. teren, igrač u akciji, loptica, reket...).
+
+----------------------------------------------------------
+GDJE NAĆI BESPLATNE SLIKE
+----------------------------------------------------------
+- https://unsplash.com   (pretraži: "tennis", "tennis court")
+- https://pexels.com     (pretraži: "tennis")
+Sve su besplatne za korištenje.
+
+----------------------------------------------------------
+ŽELIŠ DRUGI NAZIV ILI .png?
+----------------------------------------------------------
+Otvori HTML datoteku (npr. tablica.html) i nađi liniju:
+    style="background-image: url('images/hero-tablica.jpg')"
+pa promijeni naziv/ekstenziju u onu koju si stavio.
+
+Mali natpis "📷 Slika: ..." na slici je samo podsjetnik —
+nestat će čim ubaciš sliku tog naziva. (Ako ga želiš sasvim
+maknuti, obriši <span class="img-hint">...</span> u HTML-u.)

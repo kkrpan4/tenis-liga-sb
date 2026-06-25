@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tenis Liga — Mečevi</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="page-fixed page-mecevi">
+
+    <!-- ===== HERO: zamijeni sliku (images/hero-mecevi.jpg) ===== -->
+    <header
+      class="hero hero-mid"
+      style="background-image: url('images/hero-mecevi.jpg')"
+    >
+    <nav class="nav">
+        <span class="brand">
+          <img src="images/logo.png" class="brand-logo" alt="SB" />Tenis Liga
+        </span>
+        <div class="nav-center">
+          <a href="tablica.html" data-page="tablica">TABLICA</a>
+          <a href="unos.html" data-page="unos">UNESI MEČ</a>
+          <a href="mecevi.html" data-page="mecevi">MEČEVI</a>
+        </div>
+        <span class="spacer"></span>
+        <span id="me"></span>
+        <button class="btn-logout" id="logout">Odjava</button>
+      </nav>
+      <span class="img-hint">📷 Slika: images/hero-mecevi.jpg</span>
+      <div class="hero-inner">
+        <span class="hero-kicker">Povijest</span>
+        <h1 class="hero-title">Odigrani mečevi</h1>
+        <p class="hero-sub">Svi rezultati, od najnovijeg prema starijem.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div id="list">
+        <div class="empty">Učitavam...</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/mecevi.js"></script>
+
+    <footer class="site-footer">
+      <p>Tenis Liga SB · Sezona 2026 · Napravljeno za ekipu</p>
+      <img src="images/logo.png" class="footer-logo" alt="Tenis Liga SB" />
+    </footer>
+  </body>
+</html>

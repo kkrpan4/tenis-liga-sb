@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tenis Liga — Unesi meč</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="page-fixed page-unos">
+
+    <!-- ===== HERO: zamijeni sliku (images/hero-unos.jpg) ===== -->
+    <header
+      class="hero hero-mid"
+      style="background-image: url('images/hero-unos.jpg')"
+    >
+    <nav class="nav">
+        <span class="brand">
+          <img src="images/logo.png" class="brand-logo" alt="SB" />Tenis Liga
+        </span>
+        <div class="nav-center">
+          <a href="tablica.html" data-page="tablica">TABLICA</a>
+          <a href="unos.html" data-page="unos">UNESI MEČ</a>
+          <a href="mecevi.html" data-page="mecevi">MEČEVI</a>
+        </div>
+        <span class="spacer"></span>
+        <span id="me"></span>
+        <button class="btn-logout" id="logout">Odjava</button>
+      </nav>
+      <span class="img-hint">📷 Slika: images/hero-unos.jpg</span>
+      <div class="hero-inner">
+        <span class="hero-kicker">Novi rezultat</span>
+        <h1 class="hero-title">Unesi meč</h1>
+        <p class="hero-sub">Meč se igra na 2 dobivena seta.</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="card">
+        <div id="msg" class="msg"></div>
+
+        <form id="match-form">
+          <div class="players-row">
+            <div>
+              <label for="player1">Igrač 1</label>
+              <select id="player1" required></select>
+            </div>
+            <span class="vs-big">VS</span>
+            <div>
+              <label for="player2">Igrač 2</label>
+              <select id="player2" required></select>
+            </div>
+          </div>
+
+          <label>Rezultat po setovima (gemovi)</label>
+          <div class="sets">
+            <div class="set-row">
+              <span class="set-label">1. set</span>
+              <input type="number" id="p1s1" min="0" max="20" placeholder="—" />
+              <span class="vs">:</span>
+              <input type="number" id="p2s1" min="0" max="20" placeholder="—" />
+            </div>
+            <div class="set-row">
+              <span class="set-label">2. set</span>
+              <input type="number" id="p1s2" min="0" max="20" placeholder="—" />
+              <span class="vs">:</span>
+              <input type="number" id="p2s2" min="0" max="20" placeholder="—" />
+            </div>
+            <div class="set-row">
+              <span class="set-label">3. set</span>
+              <input type="number" id="p1s3" min="0" max="20" placeholder="—" />
+              <span class="vs">:</span>
+              <input type="number" id="p2s3" min="0" max="20" placeholder="—" />
+            </div>
+          </div>
+          <p class="muted" style="margin-top: 10px">
+            3. set ostavi prazan ako je meč završio 2:0.
+          </p>
+
+          <button type="submit" class="btn" id="submit" style="margin-top: 16px">
+            Spremi meč
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/unos.js"></script>
+
+    <footer class="site-footer">
+      <p>Tenis Liga SB · Sezona 2026 · Napravljeno za ekipu</p>
+      <img src="images/logo.png" class="footer-logo" alt="Tenis Liga SB" />
+    </footer>
+  </body>
+</html>

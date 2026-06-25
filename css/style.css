@@ -1,0 +1,757 @@
+/* ===========================================================
+   TENSPORT — svijetla, čista, profesionalna sportska tema
+   Crno / bijelo / siva + 1 akcent (električna limeta).
+   Hero sekcije imaju mjesto za velike slike (vidi images/).
+   =========================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap");
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f4f5f3;
+  --surface: #ffffff;
+  --ink: #0a0a0b;
+  --text: #16181d;
+  --muted: #6b7280;
+  --border: #e6e7e4;
+  --border-strong: #d3d5d0;
+
+  --accent: #f4c32e; /* tenisko žuta — ispune gumba */
+  --accent-hover: #f2c200;
+  --accent-ink: #1f1a00; /* tekst na žutoj */
+  --accent-text: #f4c32e; /* tamno zlatna za tekst na bijelom */
+
+  --danger: #dc2626;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+  --font-head: "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Navigacija ---------- */
+.nav {
+  position: absolute; 
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 20px 64px 0;       /* ODMAK: gore 18px, bočno 24px */
+  border-radius: 12px;       /* blago zaobljeno */
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(10px);
+  border-bottom: none;       /* makni donju crtu */
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28); /* sjena na hero da lebdi */
+}
+
+.nav .brand {
+  font-family: "Anton", sans-serif;
+  font-size: 1.9rem;       /* veće od linkova (oni su 0.86rem) */
+  letter-spacing: 0.5px;   /* malo zraka među slovima */
+  font-weight: 400;        /* Anton ima samo jednu debljinu */
+  text-transform: uppercase;
+  margin-right: 26px;
+  margin-top: -12px;    
+  margin-bottom: -12px;          
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+}
+.nav .brand .brand-logo {
+  height: 60px;      /* visina loga u navbaru */
+  width: auto;
+  vertical-align: middle;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 18px 16px;
+  font-weight: 600;
+  font-size: 0.86rem;
+  border-bottom: 3px solid transparent;
+  transition: 0.15s;
+}
+.nav a:hover {
+  color: var(--ink);
+}
+.nav a.active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+.nav .spacer {
+  flex: 1;
+}
+.nav #me {
+  font-weight: 600;
+  margin-right: 14px;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+.nav-center {
+  flex: 8;                  /* zauzme svu sredinu */
+  display: flex;
+  justify-content: center;  /* centrira linkove unutar sebe */
+  gap: 6px;
+}
+.nav .btn-logout {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  padding: 8px 25px;
+  border-radius: 12px;
+  margin-right: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.82rem;
+  font-family: var(--font-body);
+  transition: 0.15s;
+}
+.nav .btn-logout:hover {
+  border-color: var(--ink);
+  background: var(--bg-soft);
+}
+
+/* ---------- HERO (mjesto za velike slike) ---------- */
+.hero {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  background-color: #1c1f26; /* podloga dok nema slike */
+  /* >>> SLIKU dodaj editiranjem inline stila u HTML-u (background-image) <<< */
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero.full {
+  min-height: 100vh;
+  align-items: flex-end;     /* naslov DOLJE, ne po sredini */
+}
+.hero.full .hero-inner {
+  align-self: flex-end;
+  padding-bottom: 90px;      /* prostor iznad tablice koja viri */
+}
+
+.hero.slim {
+  min-height: 220px;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  align-self: flex-end;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 22px;
+  color: #fff;
+}
+.hero-kicker {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  border-radius: 5px;
+  margin-bottom: 14px;
+}
+.hero-title {
+  color:#ffffff;
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+.hero-sub {
+  margin: 0;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 560px;
+}
+.hero-stats {
+  position: absolute;
+  top: 110px;            /* ispod navbara */
+  left: 0; right: 0;
+  z-index: 3;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* 2x2 raspored */
+  gap: 16px;
+}
+.stat-card {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+  padding: 18px 20px;
+  color: #fff;
+}
+.stat-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+.stat-value {
+  font-family: "Anton", sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+.img-hint {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.72rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-family: var(--font-body);
+  pointer-events: none;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 960px;        /* ista širina kao hero tekst */
+  margin: -40px auto 16px; /* lagano "ulazi" preko heroja */
+  padding: 0 22px;         /* isti lijevi/desni rub kao hero tekst */
+  position: relative;
+  z-index: 5;
+  margin-top: -28px;   /* manji razmak hero tekst ↔ sadržaj */
+}
+
+h1 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: -0.5px;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+.subtitle {
+  color: var(--muted);
+  margin: 0 0 24px;
+  font-size: 1rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 26px;
+  margin-bottom: 22px;
+}
+
+/* ---------- Forme ---------- */
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--text);
+  margin-bottom: 7px;
+}
+input,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 7px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  background: #fff;
+  color: var(--text);
+}
+input::placeholder {
+  color: #aab0b6;
+}
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 3px rgba(10, 10, 11, 0.08);
+}
+.field {
+  margin-bottom: 18px;
+}
+.btn {
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: none;
+  padding: 14px 20px;
+  border-radius: 7px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.15s;
+}
+.btn:hover {
+  background: var(--accent-hover);
+}
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.btn-secondary {
+  background: var(--ink);
+  color: #fff;
+}
+.btn-secondary:hover {
+  background: #2a2c32;
+}
+
+.msg {
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  display: none;
+}
+.msg.show {
+  display: block;
+}
+.msg.error {
+  background: #fef2f2;
+  color: var(--danger);
+  border: 1px solid #fecaca;
+}
+.msg.success {
+  background: #fff8e1;
+  color: var(--accent-text);
+  border: 1px solid #ffe69a;
+}
+
+/* ---------- Auth (kartica na antracitu: forma + slika) ---------- */
+.auth-page {
+  min-height: 100vh;
+  background: #1c1d21; /* neutralni antracit ispod svega */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+.auth-card {
+  width: 100%;
+  max-width: 980px;
+  background: var(--surface);
+  border-radius: 16px; /* lagano zaobljeni rubovi kartice */
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  padding: 60px; /* MARGINA: razmak slike/forme do ruba kartice */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px; /* MARGINA: razmak između forme i slike */
+}
+.auth-form-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 2px;
+}
+.auth-box {
+  width: 100%;
+  max-width: 360px;
+}
+.auth-visual {
+  position: relative;
+  border-radius: 12px; /* zaobljena slika ("square" s mekim rubovima) */
+  overflow: hidden;
+  background-color: #14161c; /* podloga dok nema slike */
+  /* >>> SLIKU dodaj editiranjem inline stila u HTML-u <<< */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  min-height: 480px;
+  margin: -44px -44px -44px 0;
+}
+.auth-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 11, 0.2) 0%,
+    rgba(10, 10, 11, 0.78) 100%
+  );
+}
+.auth-visual-inner {
+  position: relative;
+  z-index: 2;
+  padding: 34px;
+  color: #fff;
+}
+.auth-visual-inner .big {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 1;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  margin: 0 0 0px;
+}
+.auth-visual-inner .big span {
+  color: var(--accent);
+}
+.auth-visual-inner p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 320px;
+}
+.auth-box .logo {
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  margin-bottom: -16px;
+  color: var(--ink);
+  text-align: center;
+}
+.auth-box .tag {
+  color: var(--muted);
+  margin-bottom: 26px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+.auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+.auth-switch a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+}
+
+/* ---------- Tablica lige ---------- */
+.table-wrap {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-card {
+  padding: 0px;          /* tablica ide do ruba kartice */
+  overflow: hidden; 
+  border-radius: 26px 26px 26px 26px;
+  margin-top: -50px;   /* reže tablicu po zaobljenju → zaobljen gornji dio */
+}
+
+.table-card .legend {
+  padding: 16px 22px 22px;   /* legenda dobije svoj razmak natrag */
+}
+th,
+td {
+  padding: 14px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+th {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-bottom: 2px solid var(--border-strong);
+}
+td.player,
+th.player {
+  text-align: left;
+}
+td.player {
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--ink);
+}
+tbody tr {
+  transition: background 0.12s;
+}
+tbody tr:hover {
+  background: var(--bg-soft);
+}
+.rank {
+  font-weight: 800;
+  color: var(--muted);
+}
+.rank.top1 {
+  color: var(--accent-text);
+}
+.rank.top2,
+.rank.top3 {
+  color: var(--ink);
+}
+.pts {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+
+/* ---------- Setovi (unos) ---------- */
+.sets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.set-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 24px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+.set-row .set-label {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+.set-row .vs {
+  text-align: center;
+  color: var(--muted);
+  font-weight: 700;
+}
+.set-row input {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.players-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 14px;
+  align-items: end;
+  margin-bottom: 22px;
+}
+.players-row .vs-big {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--accent-text);
+  padding-bottom: 12px;
+}
+
+/* ---------- Mečevi popis ---------- */
+.match {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 12px;
+  background: var(--surface);
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s, box-shadow 0.15s;
+
+}
+.match:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+.match .who {
+  font-weight: 500;
+  flex: 1;
+}
+.match .winner {
+  color: var(--ink);
+  font-weight: 800;
+}
+.match .score {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+}
+.match .date {
+  color: var(--muted);
+  font-size: 0.8rem;
+  min-width: 92px;
+  text-align: right;
+}
+.badge {
+  display: inline-block;
+  background: var(--ink);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-left: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 48px 20px;
+}
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.legend {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 18px;
+  line-height: 1.8;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+.legend strong {
+  color: var(--ink);
+}
+
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 10px 20px 30px;
+  font-size: 0.9rem;
+}
+.site-footer p {
+  margin: 0;
+}
+.site-footer .footer-logo {
+  display: block;
+  margin: 14px auto 0;   /* razmak iznad + centriranje */
+  height: 70px;          /* veličina loga u footeru */
+  width: auto;
+  opacity: 0.9;
+}
+
+/* ---------- Unos: produženi hero ---------- */
+.hero.hero-mid {
+  min-height: 460px;   /* srednji hero (unos + mečevi) — naslov lijepo stane */
+}
+
+/* ---------- Fiksirana ("zaključana") pozadina na svim stranicama ---------- */
+.page-fixed {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* slika stoji dok se scrolla */
+  background-repeat: no-repeat;
+}
+.page-fixed .hero {
+  background-attachment: fixed; /* poravnato s pozadinom (bez šava) */
+}
+.page-tablica {
+  background-image: url("../images/hero-tablica.jpg");
+}
+.page-unos {
+  background-image: url("../images/hero-unos.jpg");
+}
+.page-mecevi {
+  background-image: url("../images/hero-mecevi.jpg");
+}
+
+/* Mečevi: rezultati lebde kao navbar */
+.page-mecevi .match {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35);
+}
+.page-mecevi .empty {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 14px;
+}
+
+/* Footer da se ističe nad slikom (sjena ispod teksta i loga) */
+.site-footer p {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+.site-footer .footer-logo {
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.45));
+}
+
+/* ---------- Gumb za brisanje meča ---------- */
+.match-del {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 6px 9px;
+  border-radius: 8px;
+  line-height: 1;
+  transition: 0.15s;
+}
+.match-del:hover {
+  background: #fef2f2;
+  color: var(--danger);
+}
+.match-del:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (max-width: 760px) {
+  .auth-card {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .auth-visual {
+    order: -1; /* slika gore, forma ispod */
+    min-height: 220px;
+  }
+  .auth-visual-inner {
+    padding: 24px;
+  }
+}
+@media (max-width: 560px) {
+  .players-row {
+    grid-template-columns: 1fr;
+  }
+  .players-row .vs-big {
+    text-align: center;
+    padding-bottom: 0;
+  }
+  .container {
+    margin-top: -24px;
+  }
+}
