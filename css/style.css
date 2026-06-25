@@ -829,6 +829,7 @@ tbody tr:hover {
   /* Tablica da stane bez horizontalnog scrolla */
   .container {
     padding: 0 12px;
+    border-radius: 4px;
   }
   th,
   td {
