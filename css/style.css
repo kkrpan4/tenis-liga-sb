@@ -797,12 +797,6 @@ tbody tr:hover {
     font-size: 0.82rem;
   }
 
-  /* Fiksirana pozadina trza na mobitelu -> normalan scroll */
-  .page-fixed,
-  .page-fixed .hero {
-    background-attachment: scroll;
-  }
-
   /* Hero + statistike kompaktnije */
   .hero.hero-mid {
     min-height: 360px;
@@ -858,23 +852,6 @@ tbody tr:hover {
 
 /* ---------- MOBITEL: pozadina + kompaktan tablica hero ---------- */
 @media (max-width: 700px) {
-  /* Bez duplirane pozadinske slike — slika ostaje samo u herou */
-  .page-tablica,
-  .page-unos,
-  .page-mecevi {
-    background-image: none;
-    background-color: var(--bg);
-  }
-
-  /* Footer čitljiv na svijetloj podlozi */
-  .site-footer p {
-    color: var(--muted);
-    text-shadow: none;
-  }
-  .site-footer .footer-logo {
-    filter: none;
-  }
-
   /* Tablica hero: kompaktno (nav → statistike → naslov), bez praznine */
   .hero.full {
     min-height: auto;
