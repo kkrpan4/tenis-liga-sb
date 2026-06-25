@@ -666,23 +666,32 @@ tbody tr:hover {
 }
 
 /* ---------- Fiksirana ("zaključana") pozadina na svim stranicama ---------- */
-.page-fixed {
+/* Fiksna pozadina preko ::before (radi i na iOS-u; ne raste sa stranicom) */
+.page-fixed::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* slika stoji dok se scrolla */
   background-repeat: no-repeat;
 }
-.page-fixed .hero {
-  background-attachment: fixed; /* poravnato s pozadinom (bez šava) */
-}
-.page-tablica {
+.page-tablica::before {
   background-image: url("../images/hero-tablica.jpg");
 }
-.page-unos {
+.page-unos::before {
   background-image: url("../images/hero-unos.jpg");
 }
-.page-mecevi {
+.page-mecevi::before {
   background-image: url("../images/hero-mecevi.jpg");
+}
+/* Hero proziran da se vidi fiksna pozadina (jedna slika, bez šava) */
+.page-fixed .hero {
+  background-color: transparent;
+  background-image: none !important;
+}
+.page-fixed .img-hint {
+  display: none;
 }
 
 /* Mečevi: rezultati lebde kao navbar */
