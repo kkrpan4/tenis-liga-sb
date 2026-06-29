@@ -35,7 +35,6 @@
 body {
   margin: 0;
   font-family: var(--font-body);
-  background: var(--bg);
   color: var(--text);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -359,9 +358,11 @@ select:focus {
 /* ---------- Auth (kartica na antracitu: forma + slika) ---------- */
 .auth-page {
   min-height: 100vh;
-  background: #1c1d21; /* neutralni antracit ispod svega */
   display: flex;
   align-items: center;
+  background-image: url("/images/hero-tablica.jpg");
+  background-size: cover;
+  background-position: center;
   justify-content: center;
   padding: 28px;
 }
@@ -389,8 +390,7 @@ select:focus {
 .auth-visual {
   position: relative;
   border-radius: 12px; /* zaobljena slika ("square" s mekim rubovima) */
-  overflow: hidden;
-  background-color: #14161c; /* podloga dok nema slike */
+  overflow: hidden;  
   /* >>> SLIKU dodaj editiranjem inline stila u HTML-u <<< */
   background-size: cover;
   background-position: center;
@@ -398,20 +398,21 @@ select:focus {
   align-items: flex-end;
   min-height: 480px;
   margin: -44px -44px -44px 0;
+  overflow: hidden;
 }
-.auth-visual::after {
-  content: "";
+
+.auth-visual-video {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 10, 11, 0.2) 0%,
-    rgba(10, 10, 11, 0.78) 100%
-  );
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
+
 .auth-visual-inner {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   padding: 34px;
   color: #fff;
 }
@@ -419,6 +420,7 @@ select:focus {
   font-family: var(--font-head);
   font-weight: 900;
   font-size: clamp(2rem, 3vw, 2.8rem);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
   line-height: 1;
   letter-spacing: -1.5px;
   text-transform: uppercase;
@@ -431,6 +433,7 @@ select:focus {
   margin: 0;
   color: rgba(255, 255, 255, 0.82);
   max-width: 320px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 .auth-box .logo {
   font-family: var(--font-head);
@@ -739,33 +742,7 @@ tbody tr:hover {
   cursor: default;
 }
 
-@media (max-width: 760px) {
-  .auth-card {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .auth-visual {
-    order: -1; /* slika gore, forma ispod */
-    min-height: 220px;
-  }
-  .auth-visual-inner {
-    padding: 24px;
-  }
-}
-@media (max-width: 560px) {
-  .players-row {
-    grid-template-columns: 1fr;
-  }
-  .players-row .vs-big {
-    text-align: center;
-    padding-bottom: 0;
-  }
-  .container {
-    margin-top: -24px;
-  }
-}
-
-/* ---------- MOBITEL ---------- */
+/* ---------- MOBITEL (≤ 700px) ---------- */
 @media (max-width: 700px) {
   /* Navbar: zbijen, linkovi u svoj red, manje margine */
   .nav {
@@ -789,7 +766,7 @@ tbody tr:hover {
     display: none;
   }
   .nav #me {
-    display: none; /* sakrij ime da stane */
+    display: none;
   }
   .nav .btn-logout {
     margin-right: 0;
@@ -797,7 +774,7 @@ tbody tr:hover {
   }
   .nav-center {
     order: 3;
-    flex: 1 0 100%; /* linkovi u zaseban red */
+    flex: 1 0 100%;
     justify-content: space-around;
     gap: 0;
   }
@@ -811,7 +788,7 @@ tbody tr:hover {
     min-height: 360px;
   }
   .hero-stats {
-    top: 150px; /* više zraka ispod navbara */
+    top: 150px;
     gap: 10px;
   }
   .stat-card {
@@ -846,17 +823,48 @@ tbody tr:hover {
     font-size: 1rem;
   }
 
-  /* Prijava/registracija: poništi negativne margine slike + manji padding */
+  /* Prijava/registracija */
   .auth-card {
+    grid-template-columns: 1fr;
     padding: 14px;
     gap: 14px;
   }
   .auth-visual {
-    margin: 0;
-    min-height: 190px;
+    order: -1;
+    margin: -15px;
+    min-height: 120px;
+    background-color: transparent;
+    background-image: url('../images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .auth-visual-inner {
+    display: none;
+  }
+  .auth-visual-video {
+    display: none;
+  }
+  .auth-visual-inner {
+    display: none;
   }
   .auth-form-col {
     padding: 6px 6px 14px;
+    margin-top: -15px;
   }
 }
 
+/* ---------- MALI MOBITEL (≤ 560px) ---------- */
+@media (max-width: 560px) {
+  .players-row {
+    grid-template-columns: 1fr;
+  }
+  .players-row .vs-big {
+    text-align: center;
+    padding-bottom: 0;
+  }
+  .container {
+    margin-top: -24px;
+  }
+}
