@@ -360,7 +360,7 @@ select:focus {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url("/images/hero-tablica.jpg");
+  background-image: url("../images/hero-tablica.jpg");
   background-size: cover;
   background-position: center;
   justify-content: center;
